@@ -1,7 +1,7 @@
 import './index.scss'
 import UltimosServCards from '../ultimosServicosCards';
 
-export default function () {
+export default function UltimosServicos () {
     return (
 
         <div className='pagina-ultimosServ'>
