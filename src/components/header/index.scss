@@ -1,0 +1,48 @@
+.pagina-header {
+    background-image: url('../../../public/assets/images/fundoBanner.png');
+    background-size: cover;
+    height: 300px;
+    position: relative;
+
+    .conteudo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center; 
+        text-align: center;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.3);
+        height: 100%;
+
+        h1 {
+            margin: 0;
+            font: 100 55px 'InriaSerif';
+        }
+
+        p {
+            margin: 0;
+            font: 100 18px 'InriaSerif'; 
+        }
+
+        button {
+            position: absolute; 
+            top: 20px; 
+            right: 20px; 
+            display: flex;
+            align-items: center;
+            background: none;
+            color: white;
+            padding: 10px;
+            padding-right: 20px;
+            border-radius: 60px;
+            border: 3px solid white;
+            font: 100 'Inter';
+
+            img {
+                height: 20px;
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+        }
+    }
+}

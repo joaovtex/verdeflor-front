@@ -1,0 +1,35 @@
+.pagina-footer {
+    background-image: url('../../../public/assets/images/footer.png');
+    background-size: cover;
+    height: 300px;
+    position: relative;
+
+    .conteudo {
+        display: flex;
+        flex-direction: row;
+        justify-content: center; 
+        align-items: center; 
+        text-align: center;
+        color: white;
+        font-size: 24px;
+        background-color: rgba(4, 77, 29, 0.75);
+        height: 100%;
+        gap: 30px;
+
+        .redes div {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+
+            img {
+                height: 50px;
+            }
+
+            p {
+                font-size: 25px;
+                font-weight: 500;
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+.pagina-sobrenos{
+    display: flex;
+    flex-direction: column;
+
+    h1{
+        padding-top: 20px;
+        color: #034618;
+        text-align: center;
+    }
+
+    .conteudo {
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+        
+        img {
+            height: 200px;
+        }
+
+        p {
+            text-align: justify;
+        }
+    }
+}

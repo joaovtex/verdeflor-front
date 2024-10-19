@@ -1,0 +1,20 @@
+.pagina-parceiros {
+    display: flex;
+    flex-direction: row;
+    height: 250px;
+    background-color: #034618;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 50px;
+
+    h1 {
+        color: white;
+        margin-left: 0;
+    }
+
+    img {
+        height: 100px;
+    }
+}

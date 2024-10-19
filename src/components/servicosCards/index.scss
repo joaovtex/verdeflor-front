@@ -1,0 +1,28 @@
+.component-servicoscards {
+    width: 180px;
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+
+    .backimg {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        filter: brightness(60%);
+    }
+
+    p {
+        position: absolute;
+        bottom: -5px;
+        width: 130px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-weight: 500;
+        font-size: 14px;
+        text-align: center;
+        z-index: 1;
+    }
+}

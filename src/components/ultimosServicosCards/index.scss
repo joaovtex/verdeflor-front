@@ -1,0 +1,17 @@
+.component-uservs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3 {
+        font-size: 25px;
+        font-weight: 700;
+        text-align: center;
+        height: 20px;
+    }
+
+    img {
+        width: 250px;
+        filter: brightness(75%);
+    }
+}
