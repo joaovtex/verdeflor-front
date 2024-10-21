@@ -1,6 +1,7 @@
 .pagina-sobrenos{
     display: flex;
     flex-direction: column;
+    max-width: 90%;
 
     h1{
         padding-top: 20px;
@@ -11,14 +12,17 @@
     .conteudo {
         display: flex;
         flex-direction: row;
-        gap: 50px;
+        max-width: 100%;
+        gap: 4%;
         
         img {
-            height: 200px;
+            max-height: 40%;
+            max-width: 40%;
         }
 
         p {
             text-align: justify;
+            font-size: 120%;
         }
     }
 }

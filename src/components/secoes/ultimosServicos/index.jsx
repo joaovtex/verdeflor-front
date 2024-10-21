@@ -1,11 +1,11 @@
 import './index.scss'
-import UltimosServCards from '../ultimosServicosCards';
+import UltimosServCards from '../../ultimosServicosCards';
 
 export default function UltimosServicos () {
     return (
 
         <div className='pagina-ultimosServ'>
-            <h1>ÚLTIMO SERVIÇOS</h1>
+            <h1>ÚLTIMOS SERVIÇOS</h1>
             <div className='cards'>
                 <UltimosServCards titulo="Podagem de Arbusto" image="/assets/images/USPodagem.png" />
                 <UltimosServCards titulo="Aplicação de Grama" image="/assets/images/USGrama.png" />

@@ -1,5 +1,5 @@
-import './index.scss'
-import DicasCards from '../dicasCards';
+ import './index.scss'
+import DicasCards from '../../dicasCards';
 
 export default function Dicas() {
     return (
