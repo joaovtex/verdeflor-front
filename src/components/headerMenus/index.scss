@@ -1,0 +1,49 @@
+.component-headermenus {
+    background-image: url('../../../public/assets/images/fundoHeaderFooterMenus.jpg');
+    background-size: cover;
+    height: 100px;
+    position: relative;
+
+    .conteudo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        align-items: start;
+        text-align: center;
+        padding-left: 2%;
+        color: white;
+        height: 100%;
+
+        h1 {
+            margin: 0;
+            font: 100 35px 'InriaSerif';
+        }
+
+        p {
+            margin: 0;
+            font: 100 18px 'InriaSerif'; 
+        }
+
+        button {
+            position: absolute; 
+            top: 25%; 
+            right: 2%; 
+            display: flex;
+            align-items: center;
+            background: none;
+            color: white;
+            padding: 10px;
+            padding-right: 20px;
+            border-radius: 60px;
+            border: 3px solid white;
+            font-weight: bold;
+            cursor: pointer;
+
+            img {
+                height: 20px;
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+        }
+    }
+}
