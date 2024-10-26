@@ -39,6 +39,14 @@
             font-weight: bold;
             cursor: pointer;
 
+            &:hover {
+                transform: scale(1.02); 
+            }
+
+            &:active {
+                transform: scale(0.98); 
+            }
+
             img {
                 height: 20px;
                 padding-right: 15px;

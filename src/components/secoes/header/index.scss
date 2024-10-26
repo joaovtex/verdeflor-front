@@ -38,6 +38,15 @@
             border: 3px solid white;
             font: 100 'Inter';
             cursor: pointer;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.02); 
+            }
+
+            &:active {
+                transform: scale(0.98); 
+            }
 
             img {
                 height: 20px;
