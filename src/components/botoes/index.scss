@@ -1,9 +1,14 @@
+.tela {
+    display: flex;
+}
+
 .botoes-acao {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: end;
-    margin-right: 90px;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: 400px;
+    margin-top: 50px;
         
     .salvar, .descartar {
         width: 250px;
@@ -15,7 +20,7 @@
     }
 
     .salvar {
-        background-color: #2d5030;
+        background-color: #284729;
         color: #fff;
         border: none;
         margin-bottom: 10px;
@@ -32,7 +37,7 @@
     }
     
       .descartar:hover {
-        background-color: #f7f7f7; 
+        background-color: #efefef; 
       }
 
 }
