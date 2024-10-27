@@ -2,13 +2,14 @@ import './index.scss';
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import HeaderMenus from '../../components/headerMenus';
 import FooterMenus from '../../components/footerMenus';
 import Salvar from '../../components/botoes/salvar';
 import Descartar from '../../components/botoes/descartar';
 
 export default function NovoColaborador() {
-
+    const navigate = useNavigate();
     const [nome, setNome] = useState('');
     const [cpf, setCpf] = useState('');
     const [telefone, setTelefone] = useState('');
@@ -36,9 +37,9 @@ export default function NovoColaborador() {
             let resp = await axios.post('http://localhost:3010/cadastrar/funcionario', body,
                 { headers: { 'x-access-token': token } });
             alert('Novo registro inserido: ' + resp.data.id);
+            navigate('/menu')
         } catch (error) {
-            console.error('Erro ao salvar colaborador:', error.response.data); // Exibe a resposta do servidor
-            alert('Erro ao salvar colaborador: ' + error.response.data.message); // Exibe a mensagem de erro, se disponível
+            alert('Erro ao salvar colaborador: ' + error.response.data.erro); 
         }
     }
 
@@ -96,10 +97,10 @@ export default function NovoColaborador() {
 
                 <div className='botoes'>
                     <div onClick={salvarColaborador}>
-                        <Salvar />
+                        <Salvar/>
                     </div>
                     <div>
-                        <Descartar />
+                        <Link to={'/menu'}><Descartar/></Link>
                     </div>
                 </div>
 
