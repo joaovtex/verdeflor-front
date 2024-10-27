@@ -4,7 +4,7 @@ export default function Descartar() {
     return(
 
         <div className='botaoDescartar'>
-            <button className='descartar'>Salvar</button>
+            <button className='descartar'>Descartar</button>
         </div>
 
     )
