@@ -2,10 +2,12 @@
    display: flex;
    flex-direction: column;
    gap: 40px;
+   min-height: 100vh;
    .corpo {
       display: flex;
       flex-direction: column;
       align-items: center;
+      flex: 1;
       gap: 40px;
 
       h2 {
