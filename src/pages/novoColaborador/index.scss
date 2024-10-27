@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+
+.tela {
+    height: 480px;
+}
+
 .cadastro {
     margin-left: 70px;
     color: #39633c;
@@ -27,6 +32,7 @@
     .campo label {
         display: block;
         margin-bottom: 5px;
+
     }
 
     .campo input {
@@ -35,7 +41,7 @@
         padding: 10px;
         border: none;
         outline: none;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         width: calc(100% - 5px); 
     }
 
