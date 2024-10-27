@@ -1,20 +1,11 @@
-.tela {
-    display: flex;
-}
-
 .botoes-acao {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-end;
-    width: 400px;
-    margin-top: 50px;
         
     .salvar, .descartar {
         width: 250px;
         padding: 14px;
         border-radius: 5px;
-        font-family: 600 'Inter';
         font-size: 16px;
         cursor: pointer;
     }

@@ -1,73 +1,90 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+.pagina-cadastro {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    min-height: 100vh;
 
-.tela {
-    height: 480px;
+    .corpo {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: start;
+        height: 100%;
+        gap: 7%;
+        flex: 1;
+
+        .cadastro {
+            color: #284729;
+            width: 55%;
+
+            p {
+                color: #284729;
+                margin-left: 10px;
+                font-family: Inter;
+                font-weight: 700;
+                font-size: 15px;
+            }
+
+            .formulario {
+                background-color: #284729;
+                color: #fff;
+                border-radius: 15px;
+                padding: 20px;
+                font-weight: 500;
+                font-size: 14px;
+            }
+
+            .campo {
+                margin-bottom: 5px;
+            }
+
+            .campo label {
+                display: block;
+                margin-bottom: 5px;
+
+            }
+
+            .campo input {
+                box-sizing: border-box;
+                border-radius: 5px;
+                padding: 10px;
+                border: none;
+                outline: none;
+                margin-bottom: 5px;
+                width: calc(100% - 5px);
+            }
+
+            .input-grid input {
+                box-sizing: border-box;
+                border-radius: 5px;
+                padding: 10px;
+                border: none;
+                outline: none;
+                margin-bottom: 10px;
+                width: calc(100% - 5px);
+            }
+
+            .campo-grid {
+                display: grid;
+                gap: 5px;
+            }
+
+            .label-grid,
+            .input-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 35px;
+            }
+
+
+        }
+
+        .botoes {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 50px;
+        }
+    }
 }
-
-.cadastro {
-    margin-left: 70px;
-    color: #284729;
-    width: 55%;
-
-    p {
-        color: #284729;
-        margin-left: 10px;
-        font-family: Inter;
-        font-weight: 700;
-        font-size: 15px;
-    }
-
-    .formulario {
-        background-color: #284729;
-        color: #fff;
-        border-radius: 15px;
-        padding: 20px;
-        font-weight: 500;
-        font-size: 14px;
-    }
-
-    .campo {
-        margin-bottom: 5px;
-    }
-
-    .campo label {
-        display: block;
-        margin-bottom: 5px;
-
-    }
-
-    .campo input {
-        box-sizing: border-box;
-        border-radius: 5px;
-        padding: 10px;
-        border: none;
-        outline: none;
-        margin-bottom: 5px;
-        width: calc(100% - 5px); 
-    }
-
-    .input-grid input {
-        box-sizing: border-box; 
-        border-radius: 5px;
-        padding: 10px;
-        border: none;
-        outline: none;
-        margin-bottom: 10px;
-        width: calc(100% - 5px); 
-    }
-
-    .campo-grid {
-        display: grid;
-        gap: 5px;
-    }
-
-    .label-grid, .input-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 35px;
-    }
-    
-
-}
-

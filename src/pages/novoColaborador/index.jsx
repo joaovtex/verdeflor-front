@@ -44,7 +44,8 @@ export default function NovoColaborador() {
         <div className='pagina-cadastro'>
             <HeaderMenus />
 
-            <div className='tela'>
+            <div className='corpo'>
+
                 <div className='cadastro'>
                     <p>Por favor preencha as informações abaixo</p>
 
@@ -90,7 +91,11 @@ export default function NovoColaborador() {
                         </div>
                     </div>
                 </div>
-                <Botoes/>
+
+                <div className='botoes'>
+                    <Botoes />
+                </div>
+
             </div>
             <FooterMenus />
 
