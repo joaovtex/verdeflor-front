@@ -5,7 +5,7 @@ import BotoesMenu from '../../components/botoesMenu';
 import botoesElementos from './componentsElements.js';
 
 export default function Menu() {
-    
+
     return (
         <div className='pagina-menu'>
 
@@ -21,7 +21,6 @@ export default function Menu() {
                                 titulo={item.titulo}
                                 texto={item.texto}
                                 image={item.image}
-                                link={item.link} 
                             />
                         ))}
                     </div>
@@ -32,14 +31,13 @@ export default function Menu() {
                                 titulo={item.titulo}
                                 texto={item.texto}
                                 image={item.image}
-                                link={item.link}
                             />
                         ))}
                     </div>
 
             </div>
 
-            <FooterMenus/>
+            <FooterMenus />
 
         </div>
 
