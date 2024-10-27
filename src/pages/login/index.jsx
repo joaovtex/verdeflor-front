@@ -45,11 +45,11 @@ export default function Login() {
                     </p>
                 </div>
 
-                <div className='entrada'>
+                <div className='campo'>
                     <img src="../../../assets/images/email.png" alt="" className='icones' />
                     <input type='text' value={email} onChange={e => setEmail(e.target.value)} />
                 </div>
-                <div className='entrada'>
+                <div className='campo'>
                     <img src="../../../assets/images/senha.png" alt="" id='senha' />
                     <input type='password' value={senha} onChange={e => setSenha(e.target.value)}  />
                 </div>

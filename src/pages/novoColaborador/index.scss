@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.cadastro {
+    margin-left: 70px;
+    color: #39633c;
+    width: 55%;
+
+    p {
+        color: #39633c;
+        margin-left: 10px;
+        font-family: Inter;
+        font-weight: 700;
+    }
+
+    .formulario {
+        background-color: #39633c;
+        color: #fff;
+        border-radius: 15px;
+        padding: 20px;
+        font-weight: 500;
+    }
+
+    .campo {
+        margin-bottom: 5px;
+    }
+
+    .campo label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .campo input {
+        box-sizing: border-box;
+        border-radius: 5px;
+        padding: 10px;
+        border: none;
+        outline: none;
+        margin-bottom: 10px;
+        width: calc(100% - 5px); 
+    }
+
+    .input-grid input {
+        box-sizing: border-box; 
+        border-radius: 5px;
+        padding: 10px;
+        border: none;
+        outline: none;
+        margin-bottom: 10px;
+        width: calc(100% - 5px); 
+    }
+
+    .campo-grid {
+        display: grid;
+        gap: 5px;
+    }
+
+    .label-grid, .input-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 35px;
+    }
+    
+
+}
+

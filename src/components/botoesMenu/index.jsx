@@ -4,7 +4,7 @@ export default function BotoesMenu(props) {
 
     return (
 
-        <div className='component-botoesmenu'>
+        <a href={props.link} className='component-botoesmenu'>
             <div className='textos'>
                 <h3>{props.titulo}</h3>
                 <p>{props.texto}</p>
@@ -15,7 +15,7 @@ export default function BotoesMenu(props) {
                 <img src={props.image} alt="" id='icone'/>
             </div>
 
-        </div>
+        </a>
 
     );
 

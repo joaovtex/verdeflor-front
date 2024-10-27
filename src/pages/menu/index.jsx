@@ -21,6 +21,7 @@ export default function Menu() {
                                 titulo={item.titulo}
                                 texto={item.texto}
                                 image={item.image}
+                                link={item.link} 
                             />
                         ))}
                     </div>
@@ -31,6 +32,7 @@ export default function Menu() {
                                 titulo={item.titulo}
                                 texto={item.texto}
                                 image={item.image}
+                                link={item.link}
                             />
                         ))}
                     </div>
