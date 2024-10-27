@@ -1,10 +1,11 @@
 import './index.scss';
 import axios from 'axios';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import HeaderMenus from '../../components/headerMenus';
 import FooterMenus from '../../components/footerMenus';
-import Botoes from '../../components/botoes';
+import Salvar from '../../components/botoes/salvar';
+import Descartar from '../../components/botoes/descartar';
 
 export default function NovoColaborador() {
 
@@ -16,27 +17,28 @@ export default function NovoColaborador() {
     const [salario, setSalario] = useState('');
     const [dataAdmissao, setDataAdmissao] = useState('');
 
-    const navigate = useNavigate();
+    const { id } = useParams();
 
-    //arrumar com a logica da maria
     async function salvarColaborador() {
-        try {
-            let body = {
-                nome,
-                cpf,
-                telefone,
-                cargo,
-                jornada,
-                salario,
-                dataAdmissao
-            };
-
-            await axios.post('http://localhost:', body);
-            alert('Colaborador cadastrado com sucesso');
-            navigate('/menu');
+        let body = {
+            "nome": nome,
+            "cpf": cpf,
+            "telefone": telefone,
+            "cargo": cargo,
+            "jornada": jornada,
+            "salario": salario,
+            "dtAdmissao": dataAdmissao
         }
-        catch (err) {
-            alert(err.response.data.erro);
+    
+        let token = localStorage.getItem('TOKEN');
+    
+        try {
+            let resp = await axios.post('http://localhost:3010/cadastrar/funcionario', body,
+                { headers: { 'x-access-token': token } });
+            alert('Novo registro inserido: ' + resp.data.id);
+        } catch (error) {
+            console.error('Erro ao salvar colaborador:', error.response.data); // Exibe a resposta do servidor
+            alert('Erro ao salvar colaborador: ' + error.response.data.message); // Exibe a mensagem de erro, se disponível
         }
     }
 
@@ -93,7 +95,12 @@ export default function NovoColaborador() {
                 </div>
 
                 <div className='botoes'>
-                    <Botoes />
+                    <div onClick={salvarColaborador}>
+                        <Salvar />
+                    </div>
+                    <div>
+                        <Descartar />
+                    </div>
                 </div>
 
             </div>

@@ -1,0 +1,17 @@
+.botaoSalvar {
+    .salvar {
+        width: 250px;
+        padding: 14px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #284729;
+        color: #fff;
+        border: none;
+        margin-bottom: 10px;
+    }
+
+    .salvar:hover {
+        background-color: #39633c;
+    }
+}
