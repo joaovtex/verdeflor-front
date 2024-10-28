@@ -115,7 +115,7 @@ export default function EditarColaborador() {
                         <Salvar />
                     </div>
                     <div>
-                        <Link to={'/menu'}><Descartar /></Link>
+                        <Link to={'/colaboradores'}><Descartar /></Link>
                     </div>
                 </div>
 

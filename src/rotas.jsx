@@ -6,6 +6,7 @@ import Teste from "./pages/Teste";
 import Menu from "./pages/menu/";
 import NovoColaborador from "./pages/novoColaborador";
 import EditarColaborador from "./pages/editarColaborador";
+import ListarColaboradores from "./pages/listarColaboradores";
 
 
 export default function Nav() {
@@ -19,6 +20,7 @@ export default function Nav() {
                 <Route path="/menu" element={<RotasProtegidas><Menu/></RotasProtegidas>} />
                 <Route path="/novocolaborador"  element={<RotasProtegidas><NovoColaborador/></RotasProtegidas>}/>
                 <Route path="/editarcolaborador/:id" element={<RotasProtegidas><EditarColaborador/></RotasProtegidas>}/>
+                <Route path="/colaboradores" element={<RotasProtegidas><ListarColaboradores/></RotasProtegidas>}/>
             </Routes>
         </BrowserRouter>
 
