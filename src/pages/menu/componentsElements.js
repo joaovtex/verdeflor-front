@@ -13,7 +13,8 @@ const botoesElementos = [
     {
         titulo: "Novos Serviços",
         texto: "Adicione novos serviços e mantenha o gerenciamento das atividades a serem prestadas sempre em dia.",
-        image: "/assets/images/iconeNovosServicos.png"
+        image: "/assets/images/iconeNovosServicos.png",
+        link: "/novoServico"
     },
     {
         titulo: "Informações dos Serviços",
