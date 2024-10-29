@@ -3,9 +3,10 @@ import './index.scss';
 import axios from 'axios';
 import HeaderMenus from '../../components/headerMenus';
 import FooterMenus from '../../components/footerMenus';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function ListarColaboradores() {
+    const navigate = useNavigate();
     const [lista, setLista] = useState([]);
 
     useEffect(() => {
@@ -31,7 +32,7 @@ export default function ListarColaboradores() {
                 "id": id
             }
             let token = localStorage.getItem('TOKEN')
-    
+
             let resp = await axios.delete('http://localhost:3010/excluir/funcionario', {
                 headers: { 'x-access-token': token },
                 data: body
@@ -41,14 +42,17 @@ export default function ListarColaboradores() {
         } else {
             alert("Exclusão cancelada.")
         }
-        
+
     }
     return (
 
         <div className='pagina-listarColaboradores'>
             <HeaderMenus />
             <div className='corpo'>
-                <h2>Colaboradores</h2>
+                <div className='voltarTitulo'>
+                    <img src="/assets/images/botao-voltar.png" onClick={() => navigate(-1)}/>
+                    <h2>Colaboradores</h2>
+                </div>
 
                 <table>
                     <thead>
@@ -79,8 +83,8 @@ export default function ListarColaboradores() {
                                 <td>{item.Salário}</td>
                                 <td>{new Date(item.DataAdmissão).toLocaleDateString('pt-BR')}</td>
                                 <td>{item.Ativo}</td>
-                                <td><Link to={`/editarcolaborador/${item.ID}`}><img src="/assets/images/editar.png"/></Link></td>
-                                <td><img onClick={() => excluir(item.ID)} src="/assets/images/excluir.png"/></td>
+                                <td onClick={() => navigate(`/editarcolaborador/${item.ID}`)}><img src="/assets/images/editar.png" /></td>
+                                <td><img onClick={() => excluir(item.ID)} src="/assets/images/excluir.png" /></td>
                             </tr>
                         )}
                     </tbody>

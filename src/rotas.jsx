@@ -5,8 +5,8 @@ import Login from "./pages/login";
 import Teste from "./pages/Teste";
 import Menu from "./pages/menu/";
 import NovoColaborador from "./pages/novoColaborador";
-//import EditarColaborador from "./pages/editarColaborador";
-//import ListarColaboradores from "./pages/listarColaboradores";
+import EditarColaborador from "./pages/editarColaborador";
+import ListarColaboradores from "./pages/listarColaboradores";
 import NovoServico from "./pages/novoServico";
 import ListarServicos from "./pages/listarServicos";
 
@@ -21,8 +21,8 @@ export default function Nav() {
                 <Route path="/teste" element={<RotasProtegidas><Teste/></RotasProtegidas>}/>
                 <Route path="/menu" element={<RotasProtegidas><Menu/></RotasProtegidas>} />
                 <Route path="/novoColaborador" element={<RotasProtegidas><NovoColaborador/></RotasProtegidas>}/>
-                {/* <Route path="/editarColaborador" element={<RotasProtegidas><EditarColaborador/></RotasProtegidas>}/>
-                <Route path="/colaboradores" element={<RotasProtegidas><ListarColaboradores/></RotasProtegidas>}/>*/}
+                <Route path="/editarcolaborador/:id" element={<RotasProtegidas><EditarColaborador/></RotasProtegidas>}/>
+                <Route path="/colaboradores" element={<RotasProtegidas><ListarColaboradores/></RotasProtegidas>}/>
                 <Route path="/novoServico" element={<RotasProtegidas><NovoServico/></RotasProtegidas>}/>
                 <Route path="/listarServicos" element={<RotasProtegidas><ListarServicos/></RotasProtegidas>}/>
             </Routes>

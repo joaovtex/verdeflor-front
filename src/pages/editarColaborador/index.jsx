@@ -17,13 +17,18 @@ export default function EditarColaborador() {
     const [jornada, setJornada] = useState('');
     const [salario, setSalario] = useState('');
     const [dataAdmissao, setDataAdmissao] = useState('');
-    const [estaAtivo, setEstaAtivo] = useState(null);
+    const [estaAtivo, setEstaAtivo] = useState();
 
     const { id } = useParams()
 
     useEffect(() => {
         buscarPorId();
     }, []);
+
+    function formatarData(data) {
+        const [dia, mes, ano] = data.split('/');
+        return `${ano}-${mes}-${dia}`;
+    }
 
     async function buscarPorId() {
         try {
@@ -39,10 +44,37 @@ export default function EditarColaborador() {
             setCargo(resp.data.Cargo);
             setJornada(resp.data.Jornada);
             setSalario(resp.data.Salário);
-            setDataAdmissao(resp.data.DataAdmissão.split('T')[0])
-            setEstaAtivo(resp.data.Ativo===1)
+            const dataAdmissaoFormatada = formatarData(resp.data.DataAdmissão);
+            setDataAdmissao(dataAdmissaoFormatada);
+            setEstaAtivo(resp.data.Ativo)
+
+
         } catch (error) {
             console.error("Erro: " + error)
+        }
+    }
+
+    async function salvarColaborador() {
+        let body = {
+            "nome": nome,
+            "cpf": cpf,
+            "telefone": telefone,
+            "cargo": cargo,
+            "jornada": jornada,
+            "salario": salario,
+            "dtAdmissao": dataAdmissao,
+            "ativo": estaAtivo
+        }
+
+        let token = localStorage.getItem('TOKEN');
+
+        try {
+            let resp = await axios.put(`http://localhost:3010/editar/funcionario/${id}`, body,
+                { headers: { 'x-access-token': token } });
+            alert('Novo registro inserido: ' + resp.data.id);
+            navigate('/menu')
+        } catch (error) {
+            alert('Erro ao salvar colaborador: ' + error.response.data.erro);
         }
     }
 
@@ -54,7 +86,7 @@ export default function EditarColaborador() {
             <div className='corpo'>
 
                 <div className='cadastro'>
-                    <p>Atualização de Funcionário</p>
+                    <h2>Atualização de Funcionário</h2>
 
                     <div className='formulario'>
 
@@ -103,19 +135,18 @@ export default function EditarColaborador() {
                             </div>
 
                             <div className='input-radios'>
-                            <input type="radio" name='estaAtivo' checked={estaAtivo === true} onChange={() => setEstaAtivo(true)} /> <label>Sim</label>
-                            <input type="radio" name='estaAtivo' checked={estaAtivo === false} onChange={() => setEstaAtivo(false)} /> <label>Não</label>
+                                <input type="checkbox" checked={estaAtivo} onChange={e => setEstaAtivo(e.target.checked)} />
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div className='botoes'>
-                    <div>
+                    <div onClick={salvarColaborador}>
                         <Salvar />
                     </div>
-                    <div>
-                        <Link to={'/colaboradores'}><Descartar /></Link>
+                    <div onClick={() => navigate(-1)}>
+                        <Descartar />
                     </div>
                 </div>
 

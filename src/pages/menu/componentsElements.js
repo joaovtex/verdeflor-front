@@ -9,6 +9,7 @@ const botoesElementos = [
         titulo: "Dados Colaboradores",
         texto: "Consulte rapidamente os dados dos colaboradores para facilitar a gestão e o planejamento.",
         image: "/assets/images/iconeDadosColaboradores.png",
+        link: "/colaboradores"
     },
     {
         titulo: "Novos Serviços",

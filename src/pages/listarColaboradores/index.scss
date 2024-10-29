@@ -11,8 +11,18 @@
         padding-right: 5%;
         padding-left: 5%;
 
-        h2 {
+        .voltarTitulo {
+            display: flex;
+            flex-direction: row;
             color: #284729;
+            align-items: center;
+            gap: 10px;
+
+            img {
+                width: 40px;
+                height: 40px;
+                cursor: pointer;
+            }
         }
 
         table {
@@ -43,6 +53,7 @@
 
                         img {
                             width: 20px;
+                            cursor: pointer;
                         }
                     }
                 }
