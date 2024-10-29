@@ -4,6 +4,8 @@ import FooterMenus from '../../components/footerMenus';
 import Salvar from '../../components/botoes/salvar';
 import Descartar from '../../components/botoes/descartar';
 
+// falta implementar a lógica e consequentemente os botoes
+
 export default function NovoServico() {
     return (
         <div className='pagina-servico'>
@@ -13,7 +15,9 @@ export default function NovoServico() {
 
                 <div className='cadastro'>
                     <p>Por favor preencha as informações abaixo</p>
+
                     <div className='formulario'>
+
                         <div className='campo'>
                             <label>Nome Completo do Cliente</label>
                             <input type='text' />
@@ -60,14 +64,14 @@ export default function NovoServico() {
                             <label>Em Andamento</label>
                         </div>
                         <div className='botao-atv'>
-                            <input type="radio" name="option" value="SIM" />
-                            <label>SIM</label>
-                            <input type="radio" name="option" value="NÃO" />
-                            <label>NÃO</label>
+                            <input type="radio" name="estaAtivo" /> <label>Sim</label>
+                            <input type="radio" name="estaAtivo" /><label>Não</label>
                         </div>
 
                     </div>
                 </div>
+
+                {/* adc os botoes aqui */}
 
             </div>
             <FooterMenus />

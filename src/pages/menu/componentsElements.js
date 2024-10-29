@@ -19,7 +19,8 @@ const botoesElementos = [
     {
         titulo: "Informações dos Serviços",
         texto: "Mantenha o controle dos serviços, garantindo uma organização eficiente das tarefas.",
-        image: "/assets/images/iconeInformacoesServicos.png"
+        image: "/assets/images/iconeInformacoesServicos.png",
+        link: "/listarServicos"
     },
     {
         titulo: "Gerenciamento de Serviços",

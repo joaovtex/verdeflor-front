@@ -8,6 +8,7 @@ import NovoColaborador from "./pages/novoColaborador";
 //import EditarColaborador from "./pages/editarColaborador";
 //import ListarColaboradores from "./pages/listarColaboradores";
 import NovoServico from "./pages/novoServico";
+import ListarServicos from "./pages/listarServicos";
 
 
 export default function Nav() {
@@ -23,6 +24,7 @@ export default function Nav() {
                 {/* <Route path="/editarColaborador" element={<RotasProtegidas><EditarColaborador/></RotasProtegidas>}/>
                 <Route path="/colaboradores" element={<RotasProtegidas><ListarColaboradores/></RotasProtegidas>}/>*/}
                 <Route path="/novoServico" element={<RotasProtegidas><NovoServico/></RotasProtegidas>}/>
+                <Route path="/listarServicos" element={<RotasProtegidas><ListarServicos/></RotasProtegidas>}/>
             </Routes>
         </BrowserRouter>
 
