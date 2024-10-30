@@ -25,7 +25,7 @@ const botoesElementos = [
     {
         titulo: "Gerenciamento de Serviços",
         texto: "Visualize o ID dos serviços e o nome dos colaboradores responsável pela execução.",
-        image: "/assets/images/iconeGerenciamentoServicos.png"
+        image: "/assets/images/iconeGerenciamentoServicos.png",
     }
 ]
 

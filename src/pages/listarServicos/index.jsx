@@ -37,8 +37,8 @@ export default function ListarServicos() {
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><img src="/assets/images/editar.png"/></td>
+                            <td><img src="/assets/images/excluir.png"/></td>
                         </tr>
                     </tbody>
                 </table>
