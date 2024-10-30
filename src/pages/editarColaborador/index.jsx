@@ -2,7 +2,6 @@ import './index.scss';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import HeaderMenus from '../../components/headerMenus';
 import FooterMenus from '../../components/footerMenus';
 import Salvar from '../../components/botoes/salvar';
@@ -25,11 +24,6 @@ export default function EditarColaborador() {
         buscarPorId();
     }, []);
 
-    function formatarData(data) {
-        const [dia, mes, ano] = data.split('/');
-        return `${ano}-${mes}-${dia}`;
-    }
-
     async function buscarPorId() {
         try {
             let token = localStorage.getItem('TOKEN');
@@ -44,9 +38,9 @@ export default function EditarColaborador() {
             setCargo(resp.data.Cargo);
             setJornada(resp.data.Jornada);
             setSalario(resp.data.Salário);
-            const dataAdmissaoFormatada = formatarData(resp.data.DataAdmissão);
-            setDataAdmissao(dataAdmissaoFormatada);
+            setDataAdmissao(new Date(resp.data.DataAdmissao).toISOString().split('T')[0]);
             setEstaAtivo(resp.data.Ativo)
+            
 
 
         } catch (error) {
@@ -55,6 +49,7 @@ export default function EditarColaborador() {
     }
 
     async function salvarColaborador() {
+
         let body = {
             "nome": nome,
             "cpf": cpf,
@@ -63,7 +58,7 @@ export default function EditarColaborador() {
             "jornada": jornada,
             "salario": salario,
             "dtAdmissao": dataAdmissao,
-            "ativo": estaAtivo
+            "estaAtivo": estaAtivo
         }
 
         let token = localStorage.getItem('TOKEN');
@@ -71,8 +66,8 @@ export default function EditarColaborador() {
         try {
             let resp = await axios.put(`http://localhost:3010/editar/funcionario/${id}`, body,
                 { headers: { 'x-access-token': token } });
-            alert('Novo registro inserido: ' + resp.data.id);
-            navigate('/menu')
+            alert(`Colaborador de ID ${id} alterado!`);
+            navigate(-1)
         } catch (error) {
             alert('Erro ao salvar colaborador: ' + error.response.data.erro);
         }
@@ -112,8 +107,15 @@ export default function EditarColaborador() {
                                 <label>Jornada</label>
                             </div>
                             <div className='input-grid'>
-                                <input type='text' value={cargo} onChange={e => setCargo(e.target.value)} />
-                                <input type='text' value={jornada} onChange={e => setJornada(e.target.value)} />
+                            <select value={cargo} onChange={e => setCargo(e.target.value)}>
+                                    <option value="Jardineiro">Jardineiro</option>
+                                    <option value="Téc. de Irrigação">Téc. de Irrigação</option>
+                                    <option value="Agrônomo">Agrônomo</option>
+                                </select>
+                                <select value={jornada} onChange={e => setJornada(e.target.value)}>
+                                    <option value="5x2">5x2</option>
+                                    <option value="6x1">6x1</option>
+                                </select>
                             </div>
                         </div>
 
@@ -125,7 +127,7 @@ export default function EditarColaborador() {
 
                             <div className='input-grid'>
                                 <input type='text' value={salario} onChange={e => setSalario(e.target.value)} />
-                                <input type='date' value={dataAdmissao} onChange={e => setDataAdmissao(e.target.value)} />
+                                <input type='date' value={dataAdmissao} onChange={e => setDataAdmissao(new Date(e.target.value).toISOString().split('T')[0])} />
                             </div>
                         </div>
 

@@ -13,8 +13,8 @@ export default function NovoColaborador() {
     const [nome, setNome] = useState('');
     const [cpf, setCpf] = useState('');
     const [telefone, setTelefone] = useState('');
-    const [cargo, setCargo] = useState('');
-    const [jornada, setJornada] = useState('');
+    const [cargo, setCargo] = useState('Jardineiro');
+    const [jornada, setJornada] = useState('5x2');
     const [salario, setSalario] = useState('');
     const [dataAdmissao, setDataAdmissao] = useState('');
 
@@ -30,16 +30,16 @@ export default function NovoColaborador() {
             "salario": salario,
             "dtAdmissao": dataAdmissao
         }
-    
+
         let token = localStorage.getItem('TOKEN');
-    
+
         try {
             let resp = await axios.post('http://localhost:3010/cadastrar/funcionario', body,
                 { headers: { 'x-access-token': token } });
             alert('Novo registro inserido: ' + resp.data.id);
             navigate('/menu')
         } catch (error) {
-            alert('Erro ao salvar colaborador: ' + error.response.data.erro); 
+            alert('Erro ao salvar colaborador: ' + error.response.data.erro);
         }
     }
 
@@ -76,8 +76,16 @@ export default function NovoColaborador() {
                                 <label>Jornada</label>
                             </div>
                             <div className='input-grid'>
-                                <input type='text' value={cargo} onChange={e => setCargo(e.target.value)} />
-                                <input type='text' value={jornada} onChange={e => setJornada(e.target.value)} />
+                                <select value={cargo} onChange={e => setCargo(e.target.value)}>
+                                    <option value="Jardineiro">Jardineiro</option>
+                                    <option value="Téc. de Irrigação">Téc. de Irrigação</option>
+                                    <option value="Agrônomo">Agrônomo</option>
+                                </select>
+                                <select value={jornada} onChange={e => setJornada(e.target.value)}>
+                                    <option value="5x2">5x2</option>
+                                    <option value="6x1">6x1</option>
+                                </select>
+
                             </div>
                         </div>
 
@@ -97,10 +105,10 @@ export default function NovoColaborador() {
 
                 <div className='botoes'>
                     <div onClick={salvarColaborador}>
-                        <Salvar/>
+                        <Salvar />
                     </div>
                     <div>
-                        <Link to={'/menu'}><Descartar/></Link>
+                        <Link to={'/menu'}><Descartar /></Link>
                     </div>
                 </div>
 

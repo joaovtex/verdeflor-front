@@ -56,7 +56,7 @@
                 width: calc(100% - 5px);
             }
 
-            .input-grid input {
+            .input-grid input, select {
                 box-sizing: border-box;
                 border-radius: 5px;
                 padding: 10px;

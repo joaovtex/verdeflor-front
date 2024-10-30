@@ -5,7 +5,6 @@ import Login from "./pages/login";
 import Teste from "./pages/Teste";
 import Menu from "./pages/menu/";
 import NovoColaborador from "./pages/novoColaborador";
-import EditarColaborador from "./pages/editarColaborador";
 import ListarColaboradores from "./pages/listarColaboradores";
 import NovoServico from "./pages/novoServico";
 import ListarServicos from "./pages/listarServicos";

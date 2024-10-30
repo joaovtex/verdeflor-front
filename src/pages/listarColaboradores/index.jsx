@@ -81,8 +81,8 @@ export default function ListarColaboradores() {
                                 <td>{item.Cargo}</td>
                                 <td>{item.Jornada}</td>
                                 <td>{item.Salário}</td>
-                                <td>{new Date(item.DataAdmissão).toLocaleDateString('pt-BR')}</td>
-                                <td>{item.Ativo}</td>
+                                <td>{new Date(item.DataAdmissao).toLocaleDateString('pt-BR')}</td>
+                                <td>{item.Ativo ? 'Sim' : 'Não'}</td>
                                 <td onClick={() => navigate(`/editarcolaborador/${item.ID}`)}><img src="/assets/images/editar.png" /></td>
                                 <td><img onClick={() => excluir(item.ID)} src="/assets/images/excluir.png" /></td>
                             </tr>
