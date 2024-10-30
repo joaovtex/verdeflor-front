@@ -3,6 +3,7 @@ import HeaderMenus from '../../components/headerMenus';
 import FooterMenus from '../../components/footerMenus';
 import { Link } from 'react-router-dom';
 
+{/* implementar lógica */}
 export default function ListarServicos() {
     return (
 
@@ -37,8 +38,9 @@ export default function ListarServicos() {
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
-                            <td></td>
+                            {/* abaixo coloquei o link mas ainda precisa da lógica do ID */}
+                            <td><Link to={`/editarServico/`}><img src="/assets/images/editar.png"/></Link></td>
+                            <td><img src="/assets/images/excluir.png"/></td>
                         </tr>
                     </tbody>
                 </table>

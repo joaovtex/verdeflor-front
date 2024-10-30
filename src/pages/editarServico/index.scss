@@ -1,4 +1,4 @@
-.pagina-servico {
+.pagina-editarServico {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -18,9 +18,10 @@
 
             p {
                 color: #284729;
-                font-size: 15px;
+                margin-left: 10px;
+                font-family: Inter;
                 font-weight: 700;
-                margin-left: 25px;
+                font-size: 15px;
             }
 
             .formulario {
@@ -57,17 +58,14 @@
             }
 
             .label-grid,
-            .input-grid,
-            .servico,
-            .funcionario {
+            .input-grid {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 gap: 35px;
             }
 
             .input-grid input,
-            .servico,
-            .funcionario {
+            .IDFuncionario {
                 box-sizing: border-box;
                 border-radius: 5px;
                 padding: 10px;
@@ -77,24 +75,31 @@
                 width: calc(100% - 5px);
             }
 
-
-
-            .botao-atv {
-
-                label {
-                    margin-right: 10px;
-                }
-
-                input {
-                    transform: scale(1.2);
-                    margin-right: 5px;
-                    cursor: pointer;
-                }
+            .input-gridRadio {
+                display: grid;
+                grid-template-columns: auto 0fr auto 1fr;
+                gap: 6px;
+                align-items: first baseline;
             }
 
-            // adicionar o botão
+            .input-gridRadio input[type="radio"] {
+                margin-top: 10px;
+                transform: scale(1.2);
+                cursor: pointer;
+
+            }
+
+            .input-gridRadio label {
+                margin-right: 10px;
+            }
 
         }
-    }
 
+        .botoes {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 50px;
+        }
+    }
 }
