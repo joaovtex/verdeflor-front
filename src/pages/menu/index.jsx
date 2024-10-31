@@ -12,7 +12,7 @@ export default function Menu() {
             <HeaderMenus />
 
             <div className='corpo'>
-                <h2>Seus Gerenciamentos</h2>
+                <h2>Seus Gerenciamentos!</h2>
 
                     <div className='botoes'>
                         {botoesElementos.slice(0, 3).map((item, index) => (
