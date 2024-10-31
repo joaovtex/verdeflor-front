@@ -5,6 +5,8 @@ import Salvar from '../../components/botoes/salvar';
 import Descartar from '../../components/botoes/descartar';
 import { Link } from 'react-router-dom';
 
+// falta a lógica
+
 export default function EditarServico() {
     return (
 
@@ -14,7 +16,7 @@ export default function EditarServico() {
             <div className='corpo'>
 
                 <div className='cadastro'>
-                    <p>Alteração de Dados do Serviço</p>
+                    <h2>Alteração de Dados do Serviço</h2>
 
                     <div className='formulario'>
 
@@ -71,10 +73,10 @@ export default function EditarServico() {
                         <Salvar />
                     </div>
                     <div>
-                        {/* enquanto não crio a lista de serviços vou deixar para cair no menu*/}
-                        <Link to={'/menu'}><Descartar /></Link>
+                        <Link to={'/listarServicos'}><Descartar /></Link>
                     </div>
                 </div>
+
 
             </div>
 

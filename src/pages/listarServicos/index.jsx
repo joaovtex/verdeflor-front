@@ -2,15 +2,23 @@ import './index.scss';
 import HeaderMenus from '../../components/headerMenus';
 import FooterMenus from '../../components/footerMenus';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-{/* implementar lógica */}
+{/* implementar lógica */ }
 export default function ListarServicos() {
+    const navigate = useNavigate();
+
     return (
 
         <div className='pagina-listarServicos'>
             <HeaderMenus />
             <div className='corpo'>
+
+                <div className='voltarTitulo'>
+                <img src="/assets/images/botao-voltar.png" onClick={() => navigate("/menu")} />
                 <h2>Serviços</h2>
+                </div>
 
                 <table>
                     <thead>
@@ -23,7 +31,6 @@ export default function ListarServicos() {
                             <th>Data de Contratação</th>
                             <th>Funcionário</th>
                             <th>Em Andamento</th>
-                            <th>   </th>
                             <th>   </th>
                         </tr>
                     </thead>
@@ -39,8 +46,7 @@ export default function ListarServicos() {
                             <td></td>
                             <td></td>
                             {/* abaixo coloquei o link mas ainda precisa da lógica do ID */}
-                            <td><Link to={`/editarServico/`}><img src="/assets/images/editar.png"/></Link></td>
-                            <td><img src="/assets/images/excluir.png"/></td>
+                            <td><Link to={`/editarServico/`}><img src="/assets/images/editar.png" /></Link></td>
                         </tr>
                     </tbody>
                 </table>

@@ -12,8 +12,18 @@
             padding-left: 5%;
         }
 
-        h2 {
+        .voltarTitulo {
+            display: flex;
+            flex-direction: row;
             color: #284729;
+            align-items: center;
+            gap: 10px;
+
+            img {
+                width: 25px;
+                height: 25px;
+                cursor: pointer;
+            }
         }
 
         table {

@@ -1,6 +1,7 @@
 .pagina-servico {
     display: flex;
     flex-direction: column;
+    gap: 10px;
     min-height: 100vh;
 
     .corpo {
@@ -16,11 +17,10 @@
             color: #284729;
             width: 55%;
 
-            p {
+            h2 {
                 color: #284729;
-                font-size: 15px;
+                font-size: 20px;
                 font-weight: 700;
-                margin-left: 25px;
             }
 
             .formulario {
@@ -92,8 +92,13 @@
                 }
             }
 
-            // adicionar o botão
+        }
 
+        .botoes {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 50px;
         }
     }
 

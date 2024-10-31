@@ -50,7 +50,7 @@ export default function NovoColaborador() {
             <div className='corpo'>
 
                 <div className='cadastro'>
-                    <p>Por favor preencha as informações abaixo</p>
+                    <h2>Por favor preencha as informações abaixo</h2>
 
                     <div className='formulario'>
 
