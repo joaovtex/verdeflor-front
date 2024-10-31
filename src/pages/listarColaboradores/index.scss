@@ -1,0 +1,63 @@
+.pagina-listarColaboradores {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    .corpo {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        flex: 1;
+        padding-right: 5%;
+        padding-left: 5%;
+
+        .voltarTitulo {
+            display: flex;
+            flex-direction: row;
+            color: #284729;
+            align-items: center;
+            gap: 10px;
+
+            img {
+                width: 25px;
+                height: 25px;
+                cursor: pointer;
+            }
+        }
+
+        table {
+            border-collapse: collapse; 
+            width: 100%;
+            border: 1px solid #ccc; 
+            text-align: center;
+            margin-bottom: 30px;
+
+            thead {
+                background-color: #284729;
+                color: white;
+                height: 50px;
+
+                th {
+                    border: none; 
+                }
+            }
+
+            tbody {
+                tr {
+                    height: 70px;
+                    td {
+                        border-top: 1px solid #ccc; 
+                        border-left: none;
+                        border-right: none;
+                        padding: 10px;
+
+                        img {
+                            width: 20px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

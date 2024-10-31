@@ -1,9 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
-.pagina-cadastro {
+.pagina-editarServico {
     display: flex;
     flex-direction: column;
-    gap: 10px;
     min-height: 100vh;
 
     .corpo {
@@ -43,7 +40,6 @@
             .campo label {
                 display: block;
                 margin-bottom: 5px;
-
             }
 
             .campo input {
@@ -53,16 +49,6 @@
                 border: none;
                 outline: none;
                 margin-bottom: 5px;
-                width: calc(100% - 5px);
-            }
-
-            .input-grid input, select {
-                box-sizing: border-box;
-                border-radius: 5px;
-                padding: 10px;
-                border: none;
-                outline: none;
-                margin-bottom: 10px;
                 width: calc(100% - 5px);
             }
 
@@ -78,6 +64,34 @@
                 gap: 35px;
             }
 
+            .input-grid input,
+            .IDFuncionario {
+                box-sizing: border-box;
+                border-radius: 5px;
+                padding: 10px;
+                border: none;
+                outline: none;
+                margin-bottom: 10px;
+                width: calc(100% - 5px);
+            }
+
+            .input-gridRadio {
+                display: grid;
+                grid-template-columns: auto 0fr auto 1fr;
+                gap: 6px;
+                align-items: first baseline;
+            }
+
+            .input-gridRadio input[type="radio"] {
+                margin-top: 10px;
+                transform: scale(1.2);
+                cursor: pointer;
+
+            }
+
+            .input-gridRadio label {
+                margin-right: 10px;
+            }
 
         }
 

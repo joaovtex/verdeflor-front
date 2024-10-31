@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
-.pagina-cadastro {
+.pagina-servico {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -21,10 +19,8 @@
 
             h2 {
                 color: #284729;
-                margin-left: 10px;
-                font-family: Inter;
-                font-weight: 700;
                 font-size: 20px;
+                font-weight: 700;
             }
 
             .formulario {
@@ -43,7 +39,6 @@
             .campo label {
                 display: block;
                 margin-bottom: 5px;
-
             }
 
             .campo input {
@@ -56,7 +51,23 @@
                 width: calc(100% - 5px);
             }
 
-            .input-grid input, select {
+            .campo-grid {
+                display: grid;
+                gap: 5px;
+            }
+
+            .label-grid,
+            .input-grid,
+            .servico,
+            .funcionario {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 35px;
+            }
+
+            .input-grid input,
+            .servico,
+            .funcionario {
                 box-sizing: border-box;
                 border-radius: 5px;
                 padding: 10px;
@@ -66,18 +77,20 @@
                 width: calc(100% - 5px);
             }
 
-            .campo-grid {
-                display: grid;
-                gap: 5px;
-            }
 
-            .label-grid,
-            .input-grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 35px;
-            }
 
+            .botao-atv {
+
+                label {
+                    margin-right: 10px;
+                }
+
+                input {
+                    transform: scale(1.2);
+                    margin-right: 5px;
+                    cursor: pointer;
+                }
+            }
 
         }
 
@@ -88,4 +101,5 @@
             margin-top: 50px;
         }
     }
+
 }
