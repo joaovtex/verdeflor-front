@@ -26,7 +26,7 @@ export default function Nav() {
                 <Route path="/colaboradores" element={<RotasProtegidas><ListarColaboradores/></RotasProtegidas>}/>
                 <Route path="/novoServico" element={<RotasProtegidas><NovoServico/></RotasProtegidas>}/>
                 <Route path="/listarServicos" element={<RotasProtegidas><ListarServicos/></RotasProtegidas>}/>
-                <Route path="/editarServico" element={<RotasProtegidas><EditarServico/></RotasProtegidas>}/>
+                <Route path="/editarServico/:id" element={<RotasProtegidas><EditarServico/></RotasProtegidas>}/>
             </Routes>
         </BrowserRouter>
 
