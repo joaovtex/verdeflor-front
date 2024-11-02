@@ -5,43 +5,63 @@ import Salvar from '../../components/botoes/salvar';
 import Descartar from '../../components/botoes/descartar';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-
-// nessa tela falta a lógica dos botões de ativo ou não + o select dos id´s dos funcionários
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../api/constants';
 
 export default function NovoServico() {
     const navigate = useNavigate();
-    const [nome_cliente, setNome] = useState('');
-    const [documento_cliente, setDocumento] = useState('');
+    const [nomeCliente, setNomeCliente] = useState('');
+    const [documentoCliente, setDocumentoCliente] = useState('');
     const [endereco, setEndereco] = useState('');
-    const [tipo_servico, setServico] = useState('');
+    const [tipoServico, setTipoServico] = useState('Jardinagem');
     const [orcamento, setOrcamento] = useState('');
     const [contratacao, setContratacao] = useState('');
-    const [funcionario, setFuncionario] = useState('1');
-    const [estaAtivo, setEstaAtivo] = useState();
+    const [funcionario, setFuncionario] = useState(' ');
+    const [estaAtivo, setEstaAtivo] = useState(false);
+    const [lista, setLista] = useState([]);
 
-    const { id } = useParams();
+    useEffect(() => {
+        buscar()
+    }, [])
+
+    async function buscar() {
+        let token = localStorage.getItem('TOKEN')
+
+        try {
+            let resp = await axios.get('http://localhost:3010/buscar/funcionarios', {
+                headers: { 'x-access-token': token }
+            });
+
+            setLista(resp.data);
+
+            if (resp.data.length > 0) {
+                setFuncionario(resp.data[0].ID);
+            }
+        } catch (error) {
+            console.error("Erro ao buscar funcionários:", error);
+        }
+    }
 
     async function salvarServico() {
         let body = {
-            "nome_cliente": nome_cliente,
-            "documento_cliente": documento_cliente,
+            "nomeCliente": nomeCliente,
+            "documentoCliente": documentoCliente,
             "endereco": endereco,
-            "tipo_servico": tipo_servico,
+            "tipoServico": tipoServico,
             "orcamento": orcamento,
-            "dt_contratacao": contratacao,
-            "id_funcionario": funcionario,
-            "ativo": estaAtivo
+            "dtContratacao": contratacao,
+            "idFuncionario": funcionario,
+            "estaAtivo": estaAtivo
         }
 
-        let token = localStorage.getItem("token");
+        let token = localStorage.getItem('TOKEN');
 
         try {
-            let resp = await axios.post("http://localhost:3010/cadastrar/prestaca0-de-servico", body,
+            let resp = await axios.post(`${API_URL}/cadastrar/servico-prestado`, body,
                 { headers: { 'x-access-token': token } });
             alert('Novo registro inserido: ' + resp.data.id);
-            navigate('/menu')
+            navigate(-1)
         } catch (error) {
             alert('Erro ao salvar colaborador: ' + error.response.data.erro);
         }
@@ -49,7 +69,7 @@ export default function NovoServico() {
 
     return (
         <div className='pagina-servico'>
-            <HeaderMenus/>
+            <HeaderMenus />
 
             <div className='corpo'>
 
@@ -60,7 +80,7 @@ export default function NovoServico() {
 
                         <div className='campo'>
                             <label>Nome Completo do Cliente</label>
-                            <input type='text' value={nome_cliente} onChange={e => setNome(e.target.value)}/>
+                            <input type='text' value={nomeCliente} onChange={e => setNomeCliente(e.target.value)} />
                         </div>
 
                         <div className='campo-grid'>
@@ -69,8 +89,8 @@ export default function NovoServico() {
                                 <labe>Endereço</labe>
                             </div>
                             <div className='input-grid'>
-                                <input type='text' value={documento_cliente} onChange={e => setDocumento(e.target.value)}/>
-                                <input type='text' value={endereco} onChange={e => setEndereco(e.target.value)}/>
+                                <input type='text' value={documentoCliente} onChange={e => setDocumentoCliente(e.target.value)} />
+                                <input type='text' value={endereco} onChange={e => setEndereco(e.target.value)} />
                             </div>
                         </div>
 
@@ -80,7 +100,7 @@ export default function NovoServico() {
                                 <labe>Preço</labe>
                             </div>
                             <div className='input-grid'>
-                                <select className='servico' value={tipo_servico} onChange={e => setServico(e.target.value)}>
+                                <select className='servico' value={tipoServico} onChange={e => setTipoServico(e.target.value)}>
                                     <option value="Jardinagem">Jardinagem</option>
                                     <option value="Instalação de Irrigação">Instalação de Irrigação</option>
                                     <option value="Agronomia">Agronomia</option>
@@ -96,8 +116,10 @@ export default function NovoServico() {
                             </div>
                             <div className='input-grid'>
                                 <input type='date' value={contratacao} onChange={e => setContratacao(e.target.value)} />
-                                <select className='funcionario'>
-                                    <option></option>
+                                <select className='funcionario' onChange={e => setFuncionario(e.target.value)}>
+                                    {lista.map(item =>
+                                        <option key={item.ID} value={item.ID}>{item.ID}</option>
+                                    )}
                                 </select>
                             </div>
                         </div>
@@ -106,16 +128,15 @@ export default function NovoServico() {
                             <label>Em Andamento</label>
                         </div>
                         <div className='botao-atv'>
-                            <input type="radio" name="estaAtivo" /> <label>Sim</label>
-                            <input type="radio" name="estaAtivo" /><label>Não</label>
+                            <input type="checkbox" checked={estaAtivo} onChange={e => setEstaAtivo(e.target.checked)} />
                         </div>
 
                     </div>
                 </div>
 
-                
+
                 <div className='botoes'>
-                <div onClick={salvarServico}>
+                    <div onClick={salvarServico}>
                         <Salvar />
                     </div>
                     <div>

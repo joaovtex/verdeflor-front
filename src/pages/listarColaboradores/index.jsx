@@ -73,7 +73,7 @@ export default function ListarColaboradores() {
 
                     <tbody>
                         {lista.map(item =>
-                            <tr>
+                            <tr key={item.ID}>
                                 <td>{item.ID}</td>
                                 <td>{item.Nome}</td>
                                 <td>{item.CPF}</td>
