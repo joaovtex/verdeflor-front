@@ -10,6 +10,7 @@ import NovoServico from "./pages/novoServico";
 import ListarServicos from "./pages/listarServicos";
 import EditarColaborador from "./pages/editarColaborador";
 import EditarServico from "./pages/editarServico";
+import FuncionariosAlocados from "./pages/funcionariosAlocados/index.jsx";
 
 
 export default function Nav() {
@@ -27,6 +28,7 @@ export default function Nav() {
                 <Route path="/novoServico" element={<RotasProtegidas><NovoServico/></RotasProtegidas>}/>
                 <Route path="/listarServicos" element={<RotasProtegidas><ListarServicos/></RotasProtegidas>}/>
                 <Route path="/editarServico/:id" element={<RotasProtegidas><EditarServico/></RotasProtegidas>}/>
+                <Route path="/funcionariosAlocados" element={<RotasProtegidas><FuncionariosAlocados/></RotasProtegidas>}/>
             </Routes>
         </BrowserRouter>
 

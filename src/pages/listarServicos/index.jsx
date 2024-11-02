@@ -66,7 +66,6 @@ export default function ListarServicos() {
                                 <td>{new Date(item.DataContratacao).toLocaleDateString('pt-BR')}</td>
                                 <td>{item.IdFuncionario}</td>
                                 <td>{item.Ativo}</td>
-                                {/* abaixo coloquei o link mas ainda precisa da lógica do ID */}
                                 <td onClick={() => navigate(`/editarServico/${item.ID}`)}><img src="/assets/images/editar.png" /></td>
                             </tr>
                         )}
