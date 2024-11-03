@@ -1,12 +1,12 @@
-import './index.scss';
-import HeaderMenus from '../../components/headerMenus';
-import FooterMenus from '../../components/footerMenus';
-import BotoesMenu from '../../components/botoesMenu';
-import botoesElementos from './componentsElements.js';
+import './index.scss'
+import HeaderMenus from '../../components/headerMenus'
+import FooterMenus from '../../components/footerMenus'
+import BotoesMenu from '../../components/botoesMenu'
+import botoesElementos from './componentsElements.js'
 
 export default function Menu() {
-
     return (
+
         <div className='pagina-menu'>
 
             <HeaderMenus />
@@ -25,6 +25,7 @@ export default function Menu() {
                             />
                         ))}
                     </div>
+                    
                     <div className='botoes'>
                         {botoesElementos.slice(3, 5).map((item, index) => (
                             <BotoesMenu
@@ -36,7 +37,6 @@ export default function Menu() {
                             />
                         ))}
                     </div>
-
             </div>
 
             <FooterMenus />

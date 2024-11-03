@@ -1,13 +1,21 @@
 import './index.scss'
+import parceiros from './componentsElements.js';
 
 export default function Parceiros() {
-    return(
+
+    return (
 
         <div className='pagina-parceiros'>
+
             <h1>PARCEIROS: </h1>
-            <img src="/assets/images/parceiro1.png" alt="" />
-            <img src="/assets/images/parceiro2.png" alt="" />
-            <img src="/assets/images/parceiro3.png" alt="" />
+
+            {parceiros.map((item, index) => (
+                <img
+                    key={index}
+                    src={item.src}
+                />
+            ))}
+
         </div>
 
     );

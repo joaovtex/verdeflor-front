@@ -6,6 +6,7 @@ export default function Dicas() {
     return (
 
         <div className='pagina-dicas'>
+
             <div className='dicasJardim'>
                 <h1>DICAS PARA O SEU JARDIM</h1>
 
@@ -16,10 +17,10 @@ export default function Dicas() {
                         conteudo={item.conteudo}
                     />
                 ))}
-
             </div>
 
             <img src="/assets/images/dicasJardim.png" alt="" />
+
         </div>
 
     );

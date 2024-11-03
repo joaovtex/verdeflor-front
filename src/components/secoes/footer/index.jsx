@@ -1,27 +1,32 @@
 import './index.scss'
+import elements from './componentsElements.js';
 
 export default function Footer() {
-    return(
+
+    return (
 
         <div className='pagina-footer'>
+
             <div className='conteudo'>
                 <h2>Entre em contato: </h2>
 
+                {elements.map((item, index) => {
+                    <div key={index}>
+                        <img src={item.img} />
+                        <p>{item.ctt}</p>
+                    </div>
+                })}
+
                 <div className='redes'>
-                    <div>
-                        <img src="/assets/images/logoInstagram.png" alt="" />
-                        <p>@verdeflor.jardim</p>
-                    </div>
-                    <div>
-                        <img src="/assets/images/logoFacebook.png" alt="" />
-                        <p>VerdeFlor</p>
-                    </div>
-                    <div>
-                        <img src="/assets/images/logoWhatsapp.png" alt="" />
-                        <p>11 91234-5678</p>
-                    </div>
+                    {elements.map((item, index) => (
+                        <div key={index}>
+                            <img src={item.img} />
+                            <p>{item.ctt}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
+
         </div>
 
     );
