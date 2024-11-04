@@ -1,10 +1,13 @@
 import './index.scss';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function BotoesMenu(props) {
+    const navigate = useNavigate()
 
     return (
-        <Link to={props.link} className='component-botoesmenu'>
+
+        <div className='component-botoesmenu' onClick={() =>navigate(`${props.link}`)}>
+
             <div className='textos'>
                 <h3>{props.titulo}</h3>
                 <p>{props.texto}</p>
@@ -14,7 +17,9 @@ export default function BotoesMenu(props) {
                 <img src="/assets/images/iconeMais.png" alt="" id='plus' />
                 <img src={props.image} alt="" id='icone' />
             </div>
-        </Link>
+            
+        </div>
+
     );
 
 }

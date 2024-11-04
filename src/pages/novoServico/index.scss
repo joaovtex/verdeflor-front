@@ -13,6 +13,19 @@
         gap: 7%;
         flex: 1;
 
+        .tipoCliente {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            align-items: center;
+
+            select {
+                background-color: white;
+                border-radius: 10px;
+                padding: 5px;
+            }
+        }
+
         .cadastro {
             color: #284729;
             width: 55%;

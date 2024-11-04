@@ -6,9 +6,10 @@ export default function UltimosServicos() {
     return (
 
         <div className='pagina-ultimosServ'>
-            <h1>ÚLTIMOS SERVIÇOS</h1>
-            <div className='cards'>
 
+            <h1>ÚLTIMOS SERVIÇOS</h1>
+
+            <div className='cards'>
                 {ultimosServCardsElements.map((item, index) => (
                     <UltimosServCards
                         key={index}
@@ -16,8 +17,8 @@ export default function UltimosServicos() {
                         image={item.image}
                     />
                 ))}
-
             </div>
+
         </div>
 
     );

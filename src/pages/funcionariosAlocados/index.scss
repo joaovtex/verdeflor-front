@@ -1,16 +1,15 @@
-.pagina-listarServicos {
+.pagina-funcionariosAlocados {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    .corpo {
         display: flex;
         flex-direction: column;
-        min-height: 100vh;
-
-        .corpo {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            flex: 1;
-            padding-right: 5%;
-            padding-left: 5%;
-        }
+        height: 100%;
+        flex: 1;
+        padding-right: 5%;
+        padding-left: 5%;
 
         .voltarTitulo {
             display: flex;
@@ -27,27 +26,28 @@
         }
 
         table {
-            border-collapse: collapse;
-            width: 100%;
-            border: 1px solid #ccc;
+            border-collapse: collapse; 
+            width: 70%;
+            border: 1px solid #ccc; 
             text-align: center;
             margin-bottom: 30px;
+            margin-left: 15%;
 
             thead {
                 background-color: #284729;
-                color: #fff;
+                color: white;
                 height: 50px;
 
                 th {
-                    border: none;
+                    border: none; 
                 }
             }
 
             tbody {
-                tr{
+                tr {
                     height: 70px;
                     td {
-                        border-top: 1px solid #ccc;
+                        border-top: 1px solid #ccc; 
                         border-left: none;
                         border-right: none;
                         padding: 10px;
@@ -59,6 +59,6 @@
                     }
                 }
             }
-
         }
+    }
 }

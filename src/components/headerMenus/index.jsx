@@ -10,6 +10,8 @@ export default function HeaderMenus() {
         localStorage.removeItem('TOKEN');
         navigate('/');
     }
+
+
     return (
 
         <div className='component-headermenus'>
@@ -19,11 +21,11 @@ export default function HeaderMenus() {
                     <img src="/assets/images/sairUser.png" alt="" />
                     Sair
                 </button>
+
                 <div>
                     <h1>VerdeFlor</h1>
                     <p>Cuidados para o seu jardim</p>
                 </div>
-
             </div>
 
         </div>

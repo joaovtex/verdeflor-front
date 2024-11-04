@@ -4,9 +4,12 @@ export default function SobreNos() {
     return (
 
         <div className='pagina-sobrenos'>
+            
             <h1>SOBRE NÓS</h1>
+
             <div className='conteudo'>
                 <img src="/assets/images/sobreNos.png" alt="" />
+                
                 <p>
                     Com anos de experiência em jardinagemo, a VerdeFlor oferece serviços 
                     personalizados que atendem às suas necessidades e elevam a beleza do 
@@ -16,6 +19,7 @@ export default function SobreNos() {
                      um trabalho de alta qualidade e dedicação em cada detalhe.
                 </p>
             </div>
+
         </div>
 
     );
