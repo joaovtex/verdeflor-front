@@ -18,31 +18,98 @@ export default function NovoServico() {
     const [tipoServico, setTipoServico] = useState('Jardinagem')
     const [orcamento, setOrcamento] = useState('')
     const [contratacao, setContratacao] = useState('')
-    const [funcionario, setFuncionario] = useState(' ')
+    const [funcionarioId, setFuncionarioId] = useState(' ')
+    const [funcionarioNome, setFuncionarioNome] = useState(' ')
     const [estaAtivo, setEstaAtivo] = useState(false)
     const [lista, setLista] = useState([])
     const [tipoCliente, setTipoCliente] = useState('PF')
 
     useEffect(() => {
-        buscar()
-    }, []);
+        buscar();
+    }, [tipoServico]);
 
     async function buscar() {
-        try {
-            let token = localStorage.getItem('TOKEN')
 
-            let resp = await axios.get(`${API_URL}/buscar/funcionarios`, {
-                headers: { 'x-access-token': token }
-            })
+        if (tipoServico == "Jardinagem") {
+            try {
+                let token = localStorage.getItem('TOKEN')
 
-            setLista(resp.data)
+                let resp = await axios.get(`${API_URL}/buscar/jardineiros`, {
+                    headers: {
+                        'x-access-token': token
+                    }
+                })
 
-            if (resp.data.length > 0) {
-                setFuncionario(resp.data[0].ID);
+                setLista(resp.data)
+
+                if (resp.data.length > 0) {
+                    setFuncionarioId(resp.data[0].ID);
+                    setFuncionarioNome(resp.data[0].Nome)
+                }
+
+            } catch (error) {
+
             }
-        } catch (error) {
-            console.error("Erro ao buscar funcionários:", error)
+        } else if (tipoServico == "Instalação de Irrigação") {
+            try {
+                let token = localStorage.getItem('TOKEN')
+
+                let resp = await axios.get(`${API_URL}/buscar/tecnicos`, {
+                    headers: {
+                        'x-access-token': token
+                    }
+                })
+
+                setLista(resp.data)
+
+                if (resp.data.length > 0) {
+                    setFuncionarioId(resp.data[0].ID);
+                    setFuncionarioNome(resp.data[0].Nome)
+                }
+
+            } catch (error) {
+
+            }
+        } else {
+            try {
+                let token = localStorage.getItem('TOKEN')
+
+                let resp = await axios.get(`${API_URL}/buscar/agronomos`, {
+                    headers: {
+                        'x-access-token': token
+                    }
+                })
+
+                setLista(resp.data)
+
+                if (resp.data.length > 0) {
+                    setFuncionarioId(resp.data[0].ID);
+                    setFuncionarioNome(resp.data[0].Nome)
+                }
+
+            } catch (error) {
+
+            }
         }
+
+        /* 
+         try {
+             let token = localStorage.getItem('TOKEN')
+ 
+             let resp = await axios.get(`${API_URL}/buscar/funcionarios`, {
+                 headers: { 'x-access-token': token }
+             })
+ 
+             setLista(resp.data)
+ 
+             if (resp.data.length > 0) {
+                 setFuncionarioId(resp.data[0].ID);
+                 setFuncionarioNome(resp.data[0].Nome)
+             }
+         } catch (error) {
+             console.error("Erro ao buscar funcionários:", error)
+         }
+         */
     }
 
     async function salvarServico() {
@@ -54,7 +121,7 @@ export default function NovoServico() {
                 "tipoServico": tipoServico,
                 "orcamento": orcamento,
                 "dtContratacao": contratacao,
-                "idFuncionario": funcionario,
+                "idFuncionario": funcionarioId,
                 "estaAtivo": estaAtivo
             }
 
@@ -133,6 +200,7 @@ export default function NovoServico() {
                                 <select
                                     className='servico'
                                     onChange={e => setTipoServico(e.target.value)}
+                                    value={tipoServico}
                                 >
                                     <option value="Jardinagem">Jardinagem</option>
                                     <option value="Instalação de Irrigação">Instalação de Irrigação</option>
@@ -154,7 +222,7 @@ export default function NovoServico() {
                         <div className='campo-grid'>
                             <div className='label-grid'>
                                 <label>Data de Contratação</label>
-                                <label>ID do Funcionário</label>
+                                <label>Funcionário</label>
                             </div>
 
                             <div className='input-grid'>
@@ -165,14 +233,14 @@ export default function NovoServico() {
 
                                 <select
                                     className='funcionario'
-                                    onChange={e => setFuncionario(e.target.value)}
+                                    onChange={e => setFuncionarioId(e.target.value)}
                                 >
                                     {lista.map((item, index) => (
                                         <option
                                             key={index}
                                             value={item.ID}
                                         >
-                                            {item.ID}
+                                            {item.Nome}
                                         </option>
                                     ))}
                                 </select>
@@ -207,5 +275,5 @@ export default function NovoServico() {
         </div>
 
     );
-    
+
 }

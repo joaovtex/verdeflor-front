@@ -74,7 +74,7 @@ export default function ListarServicos() {
                                 <td>{item.TipoServico}</td>
                                 <td>R$ {item.Orcamento}</td>
                                 <td>{new Date(item.DataContratacao).toLocaleDateString('pt-BR')}</td>
-                                <td>{item.IdFuncionario}</td>
+                                <td>{item.NomeFuncionario}</td>
                                 <td>{item.Ativo ? "Sim" : "Não"}</td>
                                 <td onClick={() => navigate(`/editarServico/${item.ID}`)}><img src="/assets/images/editar.png" /></td>
                             </tr>
