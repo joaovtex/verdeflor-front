@@ -6,7 +6,7 @@ const botoesElementos = [
         link: "/novoColaborador" 
     },
     {
-        titulo: "Dados Colaboradores",
+        titulo: "Dados dos Colaboradores",
         texto: "Consulte rapidamente os dados dos colaboradores para facilitar a gestão e o planejamento.",
         image: "/assets/images/iconeDadosColaboradores.png",
         link: "/colaboradores"
@@ -24,10 +24,10 @@ const botoesElementos = [
         link: "/listarServicos"
     },
     {
-        titulo: "Gerenciamento de Serviços",
-        texto: "Visualize o ID dos serviços e o nome dos colaboradores responsável pela execução.",
+        titulo: "Lucros de 2024",
+        texto: "Visualize um gráfico com os lucros mensais de 2024.",
         image: "/assets/images/iconeGerenciamentoServicos.png",
-        link: "/funcionariosAlocados"
+        link: "/graficoDeLucros"
     }
 ]
 

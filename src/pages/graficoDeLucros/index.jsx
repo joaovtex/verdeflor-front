@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import { API_URL } from '../../api/constants'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 
-export default function FuncionariosAlocados() {
+export default function GraficoDeLucros() {
     const navigate = useNavigate()
     const [lista, setLista] = useState([])
     const [totalOrcamentoPorMes, setTotalOrcamentoPorMes] = useState({});
@@ -64,16 +64,16 @@ export default function FuncionariosAlocados() {
 
             <HeaderMenus />
 
+            <div className='voltarTitulo'>
+                <img
+                    src="/assets/images/botao-voltar.png"
+                    onClick={() => navigate(-1)}
+                />
+
+                <h2>Lucros de 2024</h2>
+            </div>
+
             <div className='corpo'>
-
-                <div className='voltarTitulo'>
-                    <img
-                        src="/assets/images/botao-voltar.png"
-                        onClick={() => navigate(-1)}
-                    />
-
-                    <h2>IDs de Serviços e Funcionários Alocados</h2>
-                </div>
 
                 <ResponsiveContainer width="80%" height={300}>
                     <BarChart data={dados}>
@@ -82,40 +82,10 @@ export default function FuncionariosAlocados() {
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="vendas" fill="#8884d8" />
+                        <Bar dataKey="vendas" fill="#284729" />
                     </BarChart>
                 </ResponsiveContainer>
 
-                {/*
-                <div className='voltarTitulo'>
-                    <img
-                        src="/assets/images/botao-voltar.png"
-                        onClick={() => navigate(-1)}
-                    />
-
-                    <h2>IDs de Serviços e Funcionários Alocados</h2>
-                </div>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID do Serviço</th>
-                            <th>ID do Funcionário</th>
-                            <th>Nome do Funcionário</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        {lista.map(item =>
-                            <tr key={item.ID}>
-                                <td>{item.ID}</td>
-                                <td>{item.IdFuncionario}</td>
-                                <td>{item.NomeFuncionario}</td>
-                            </tr>
-                        )}
-                    </tbody>
-                </table>
-                */}
             </div>
 
             <FooterMenus />
