@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { API_URL } from '../../api/constants.js'
+import toast, { Toaster } from 'react-hot-toast'
 
 
 export default function Login() {
@@ -24,7 +25,7 @@ export default function Login() {
             navigate('/menu')
         }
         catch (err) {
-            alert(err.response.data.erro)
+            toast.error(err.response?.data?.erro);
         }
     }
 
@@ -69,6 +70,8 @@ export default function Login() {
                 </div>
 
                 <button onClick={logar}>ENTRAR</button>
+
+                <Toaster />
             </div>
 
         </div>

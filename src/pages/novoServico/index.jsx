@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import { API_URL } from '../../api/constants'
 import InputMask from 'react-input-mask'
 import { NumericFormat } from 'react-number-format'
+import toast, { Toaster } from 'react-hot-toast'
 
 export default function NovoServico() {
     const navigate = useNavigate()
@@ -48,7 +49,7 @@ export default function NovoServico() {
                 }
 
             } catch (error) {
-
+                alert(error.response.data.erro)
             }
         } else if (tipoServico == "Instalação de Irrigação") {
             try {
@@ -68,7 +69,7 @@ export default function NovoServico() {
                 }
 
             } catch (error) {
-
+                alert(error.response.data.erro)
             }
         } else {
             try {
@@ -88,28 +89,9 @@ export default function NovoServico() {
                 }
 
             } catch (error) {
-
+                alert(error.response.data.erro)
             }
         }
-
-        /* 
-         try {
-             let token = localStorage.getItem('TOKEN')
- 
-             let resp = await axios.get(`${API_URL}/buscar/funcionarios`, {
-                 headers: { 'x-access-token': token }
-             })
- 
-             setLista(resp.data)
- 
-             if (resp.data.length > 0) {
-                 setFuncionarioId(resp.data[0].ID);
-                 setFuncionarioNome(resp.data[0].Nome)
-             }
-         } catch (error) {
-             console.error("Erro ao buscar funcionários:", error)
-         }
-         */
     }
 
     async function salvarServico() {
@@ -131,10 +113,13 @@ export default function NovoServico() {
                 headers: { 'x-access-token': token }
             })
 
-            alert('Novo registro inserido: ' + resp.data.id)
-            navigate(-1)
+            toast.success('Novo serviço inserido ao Banco de Dados!')
+            
+            setTimeout(() => {
+                navigate(-1)
+            }, 2000)
         } catch (error) {
-            alert('Erro ao salvar cliente: ' + error.response.data.erro)
+            toast.error(error.response.data.erro)
         }
     }
 
@@ -271,6 +256,8 @@ export default function NovoServico() {
             </div>
 
             <FooterMenus />
+
+            <Toaster />
 
         </div>
 

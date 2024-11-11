@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { API_URL } from '../../api/constants'
 import { NumericFormat } from 'react-number-format'
+import toast, { Toaster } from 'react-hot-toast'
 
 export default function EditarServico() {
     const navigate = useNavigate()
@@ -64,7 +65,7 @@ export default function EditarServico() {
             setLista(resp.data)
 
         } catch (error) {
-            console.error("Erro ao buscar funcionários:", error)
+            alert("Erro ao buscar funcionários: ", error)
         }
     }
 
@@ -90,14 +91,15 @@ export default function EditarServico() {
                 }
             )
 
-            alert(`Servico de ID ${id} alterado!`)
+            toast.success(`Servico alterado!`)
 
-            navigate(-1)
+            setTimeout(() => {
+                navigate(-1)
+            }, 2000)
         } catch (error) {
-            alert('Erro ao salvar serviço: ' + error.response.data.erro)
+            toast.error(error.response.data.erro)
         }
     }
-
 
     return (
 
@@ -216,6 +218,8 @@ export default function EditarServico() {
             </div>
 
             <FooterMenus />
+
+            <Toaster />
 
         </div>
     );

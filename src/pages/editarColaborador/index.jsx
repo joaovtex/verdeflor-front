@@ -9,6 +9,7 @@ import Descartar from '../../components/botoes/descartar'
 import { API_URL } from '../../api/constants'
 import InputMask from 'react-input-mask';
 import { NumericFormat } from 'react-number-format';
+import toast, { Toaster } from 'react-hot-toast'
 
 export default function EditarColaborador() {
     const navigate = useNavigate()
@@ -46,7 +47,7 @@ export default function EditarColaborador() {
             setDataAdmissao(new Date(resp.data.DataAdmissao).toISOString().split('T')[0])
             setEstaAtivo(resp.data.Ativo)
         } catch (error) {
-            console.error("Erro ao buscar colaborador: " + error.response.data.erro)
+            alert("Erro ao buscar colaborador: " + error.response.data.erro)
         }
     }
 
@@ -72,11 +73,13 @@ export default function EditarColaborador() {
                 }
             )
 
-            alert(`Colaborador de ID ${id} alterado!`)
+            toast.success(`Colaborador alterado!`)
 
-            navigate(-1)
+            setTimeout(() => {
+                navigate(-1)
+            }, 2000)
         } catch (error) {
-            alert('Erro ao editar colaborador: ' + error.response.data.erro)
+            toast.error(error.response.data.erro)
         }
     }
 
@@ -211,6 +214,8 @@ export default function EditarColaborador() {
             </div>
 
             <FooterMenus />
+
+            <Toaster />
 
         </div>
 

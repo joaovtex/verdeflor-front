@@ -5,6 +5,7 @@ import HeaderMenus from '../../components/headerMenus'
 import FooterMenus from '../../components/footerMenus'
 import { useNavigate } from 'react-router-dom'
 import { API_URL } from '../../api/constants.js'
+import toast, { Toaster } from 'react-hot-toast'
 
 export default function ListarColaboradores() {
     const navigate = useNavigate()
@@ -48,9 +49,11 @@ export default function ListarColaboradores() {
                     }
                 )
 
+                toast.success('Exclusão realizada com sucesso!')
+
                 buscar()
             } else {
-                alert("Exclusão cancelada.")
+                toast.error('Exclusão cancelada!')
             }
         } catch (error) {
             alert('Erro ao excluir: ' + error.response.data.erro)
@@ -111,6 +114,8 @@ export default function ListarColaboradores() {
             </div>
 
             <FooterMenus />
+
+            <Toaster />
 
         </div>
 

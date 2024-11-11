@@ -9,6 +9,7 @@ import Descartar from '../../components/botoes/descartar'
 import { API_URL } from '../../api/constants.js'
 import InputMask from 'react-input-mask'
 import { NumericFormat } from 'react-number-format'
+import toast, { Toaster } from 'react-hot-toast'
 
 export default function NovoColaborador() {
     const navigate = useNavigate()
@@ -34,20 +35,23 @@ export default function NovoColaborador() {
 
             let token = localStorage.getItem('TOKEN')
 
-            let resp = await axios.post(`${API_URL}/cadastrar/funcionario`,
-                body,
-                {
-                    headers: { 'x-access-token': token }
+            let resp = await axios.post(`${API_URL}/cadastrar/funcionario`, body, {
+                headers: {
+                    'x-access-token': token
                 }
-            )
+            })
 
-            alert('Novo registro inserido: ' + resp.data.id)
+            toast.success(`Novo colaborador inserido ao quadro de funcionários!`);
 
-            navigate(-1)
+            setTimeout(() => {
+                navigate(-1)
+            }, 2000)
+
         } catch (error) {
-            alert('Erro ao salvar colaborador: ' + error.response.data.erro)
+            toast.error(error.response?.data?.erro)
         }
     }
+
 
     return (
         <div className='pagina-cadastro'>
@@ -74,7 +78,7 @@ export default function NovoColaborador() {
                                 <label>CPF</label>
                                 <label>Telefone</label>
                             </div>
-                            
+
                             <div className='input-grid'>
                                 <InputMask
                                     mask="999.999.999-99"
@@ -158,6 +162,8 @@ export default function NovoColaborador() {
             </div>
 
             <FooterMenus />
+
+            <Toaster />
 
         </div>
     );
