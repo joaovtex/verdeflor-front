@@ -16,29 +16,32 @@ export default function EditarServico() {
     const [nomeCliente, setNomeCliente] = useState('')
     const [documentoCliente, setDocumentoCliente] = useState('')
     const [endereco, setEndereco] = useState('')
-    const [tipoServico, setTipoServico] = useState('Jardinagem')
+    const [tipoServico, setTipoServico] = useState('')
     const [orcamento, setOrcamento] = useState('')
     const [contratacao, setContratacao] = useState('')
     const [funcionario, setFuncionario] = useState(' ')
     const [estaAtivo, setEstaAtivo] = useState(false)
     const [lista, setLista] = useState([])
+    const [funcionarioId, setFuncionarioId] = useState(' ')
+    const [funcionarioNome, setFuncionarioNome] = useState(' ')
 
     const { id } = useParams()
 
     useEffect(() => {
         buscarPorId()
-        buscar()
     }, []);
+
+    useEffect(() => {
+        buscar()
+    }, [tipoServico]);
 
     async function buscarPorId() {
         try {
             let token = localStorage.getItem('TOKEN')
 
-            let resp = await axios.get(`${API_URL}/buscar/servico-prestado/${id}`,
-                {
-                    headers: { 'x-access-token': token }
-                }
-            )
+            let resp = await axios.get(`${API_URL}/buscar/servico-prestado/${id}`, {
+                headers: { 'x-access-token': token }
+            })
 
             setNomeCliente(resp.data.NomeCliente)
             setDocumentoCliente(resp.data.CPF_CNPJ)
@@ -55,17 +58,66 @@ export default function EditarServico() {
     }
 
     async function buscar() {
-        try {
-            let token = localStorage.getItem('TOKEN')
+        if (tipoServico === "Jardinagem") {
+            try {
+                let token = localStorage.getItem('TOKEN')
 
-            let resp = await axios.get(`${API_URL}/buscar/funcionarios`, {
-                headers: { 'x-access-token': token }
-            })
+                let resp = await axios.get(`${API_URL}/buscar/jardineiros`, {
+                    headers: {
+                        'x-access-token': token
+                    }
+                })
 
-            setLista(resp.data)
+                setLista(resp.data)
 
-        } catch (error) {
-            alert("Erro ao buscar funcionários: ", error)
+                if (resp.data.length > 0) {
+                    setFuncionarioId(resp.data[0].ID);
+                    setFuncionarioNome(resp.data[0].Nome)
+                }
+
+            } catch (error) {
+                alert(error.response.data.erro)
+            }
+        } else if (tipoServico === "Instalação de Irrigação") {
+            try {
+                let token = localStorage.getItem('TOKEN')
+
+                let resp = await axios.get(`${API_URL}/buscar/tecnicos`, {
+                    headers: {
+                        'x-access-token': token
+                    }
+                })
+
+                setLista(resp.data)
+
+                if (resp.data.length > 0) {
+                    setFuncionarioId(resp.data[0].ID);
+                    setFuncionarioNome(resp.data[0].Nome)
+                }
+
+            } catch (error) {
+                alert(error.response.data.erro)
+            }
+        } else {
+            try {
+                let token = localStorage.getItem('TOKEN')
+
+                let resp = await axios.get(`${API_URL}/buscar/agronomos`, {
+                    headers: {
+                        'x-access-token': token
+                    }
+                })
+
+                setLista(resp.data)
+
+                if (resp.data.length > 0) {
+                    setFuncionarioId(resp.data[0].ID);
+                    setFuncionarioNome(resp.data[0].Nome)
+                }
+
+            } catch (error) {
+                alert(error.response.data.erro)
+            }
         }
     }
 
@@ -82,14 +134,11 @@ export default function EditarServico() {
                 "estaAtivo": estaAtivo
             }
 
-            let token = localStorage.getItem('TOKEN');
+            let token = localStorage.getItem('TOKEN')
 
-            let resp = await axios.put(`${API_URL}/editar/servico-prestado/${id}`,
-                body,
-                {
-                    headers: { 'x-access-token': token }
-                }
-            )
+            let resp = await axios.put(`${API_URL}/editar/servico-prestado/${id}`, body, {
+                headers: { 'x-access-token': token }
+            })
 
             toast.success(`Servico alterado!`)
 
@@ -102,21 +151,16 @@ export default function EditarServico() {
     }
 
     return (
-
         <div className='pagina-editarServico'>
-
             <HeaderMenus />
 
             <div className='corpo'>
-
                 <div className='cadastro'>
                     <h2>Alteração de Dados do Serviço</h2>
 
                     <div className='formulario'>
-
                         <div className='campo'>
                             <label>Nome Completo do Cliente</label>
-
                             <input
                                 type='text'
                                 value={nomeCliente}
@@ -127,7 +171,6 @@ export default function EditarServico() {
                         <div className='campo-grid'>
                             <div className='label-grid'>
                                 <label>Endereço</label>
-
                                 <label>Serviço</label>
                             </div>
 
@@ -152,7 +195,6 @@ export default function EditarServico() {
                         <div className='campo-grid'>
                             <div className='label-grid'>
                                 <label>Preço</label>
-
                                 <label>Data de Contração</label>
                             </div>
 
@@ -178,8 +220,7 @@ export default function EditarServico() {
 
                         <div className='campo-grid'>
                             <div className='label-grid'>
-                                <label>ID Funcionário Alocado</label>
-
+                                <label>Funcionário Alocado</label>
                                 <label>Em Andamento</label>
                             </div>
 
@@ -190,7 +231,7 @@ export default function EditarServico() {
                                     onChange={e => setFuncionario(e.target.value)}
                                 >
                                     {lista.map(item =>
-                                        <option key={item.ID} value={item.ID}>{item.ID}</option>
+                                        <option key={item.ID} value={item.ID}>{item.Nome}</option>
                                     )}
                                 </select>
 
@@ -213,14 +254,10 @@ export default function EditarServico() {
                         <Descartar />
                     </div>
                 </div>
-
-
             </div>
 
             <FooterMenus />
-
             <Toaster />
-
         </div>
     );
 }
